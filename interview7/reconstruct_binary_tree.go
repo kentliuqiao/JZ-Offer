@@ -33,3 +33,15 @@ func reconstructBinaryTree(pre []int, preStart, preEnd int, mid []int, midStart,
 
 	return root
 }
+
+func reconstruct2(preorder []int, inorder []int) *TreeNode {
+	for k, v := range inorder {
+		if v == preorder[0] {
+			return &TreeNode{
+				Val:   v,
+				Left:  reconstruct2(preorder[1:k+1], inorder[:k]),
+				Right: reconstruct2(preorder[k+1:], inorder[k+1:]),
+			}
+		}
+	}
+}
