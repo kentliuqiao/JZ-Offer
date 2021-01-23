@@ -44,4 +44,5 @@ func reconstruct2(preorder []int, inorder []int) *TreeNode {
 			}
 		}
 	}
+	return nil
 }
